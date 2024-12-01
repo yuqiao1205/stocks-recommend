@@ -12,6 +12,8 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <Stack screenOptions={{ title: "Stocks" }} />
+      <Text style={styles.title}>Stocks List</Text>
+
       <FlatList
         data={stocks}
         renderItem={({ item }) => <StockListItem stock={item} />}
@@ -28,5 +30,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+    marginTop: 15,
+    textAlign: "center",
   },
 });

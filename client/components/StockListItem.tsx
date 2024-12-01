@@ -1,6 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { MonoText } from "./StyledText";
+import { Link } from "expo-router";
 
 type Stock = {
   name: string;
@@ -15,24 +16,32 @@ type StockListItem = {
 
 export default function StockListItem({ stock }: { stock: Stock }) {
   const change = Number.parseFloat(stock.percent_change);
+  const changeColor = change > 0 ? "green" : change < 0 ? "red" : "black"; // Determine color based on value
+
   return (
-    <View style={styles.container}>
-      {/*left side*/}
-      <View style={{ flex: 1, gap: 20 }}>
-        <Text style={styles.symbol}>
-          {stock.symbol}
-          <AntDesign name="staro" size={18} color="gray" />
-        </Text>
-        <Text style={{ color: "gray" }}>{stock.name}</Text>
-      </View>
-      {/*right side*/}
-      <View style={{ alignItems: "flex-end" }}>
-        <MonoText>{Number.parseFloat(stock.close).toFixed(2)}</MonoText>
-        <MonoText style={{ color: change > 0 ? "green" : "red" }}>
-          {change.toFixed(1)}%{change > 0 ? " ▲" : " ▼"}
-        </MonoText>
-      </View>
-    </View>
+    <Link href={`/${stock.symbol}` as const} asChild>
+      <Pressable
+        style={styles.container}
+        onPress={() => console.log("Pressable pressed!")}
+      >
+        {/* Left side */}
+        <View style={{ flex: 1, gap: 20 }}>
+          <Text style={styles.symbol}>
+            {stock.symbol}
+            <AntDesign name="staro" size={18} color="gray" />
+          </Text>
+          <Text style={{ color: "gray" }}>{stock.name}</Text>
+        </View>
+
+        {/* Right side */}
+        <View style={{ alignItems: "flex-end" }}>
+          <MonoText>{Number.parseFloat(stock.close).toFixed(2)}</MonoText>
+          <MonoText style={{ color: changeColor }}>
+            {change.toFixed(1)}%{change > 0 ? " ▲" : change < 0 ? " ▼" : " ●"}
+          </MonoText>
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 

@@ -52,7 +52,7 @@ export default function TabLayout() {
         name="two"
         options={{
           title: "Recommand List",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
         }}
       />
     </Tabs>
