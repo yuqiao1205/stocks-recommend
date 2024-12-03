@@ -6,20 +6,23 @@ import {
   ScrollView,
   Text,
 } from "react-native";
-
 import { View } from "@/components/Themed";
 import { Stack } from "expo-router";
+// import { BACKEND_URL } from "@env"; // Uncomment this if using environment variables
 
 import DailyLoserListItem from "@/components/DailyLoserListItem";
 
 export default function TabTwoScreen() {
-  const [stocks, setStocks] = useState([]);
+  const [stocks, setStocks] = useState([]); // Removed generics here
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5000/fin"); // Adjust if hosted remotely
+        const response = await fetch("http://stockshub.duckdns.org:5001/fin"); // Adjust if hosted remotely
+
+        // Adjust if hosted remotely
+        // const response = await fetch(`${BACKEND_URL}/fin`); // Adjust if hosted remotely
         const data = await response.json();
         setStocks(data.daily_losers);
       } catch (error) {

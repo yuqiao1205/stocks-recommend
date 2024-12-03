@@ -1,13 +1,18 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import top5 from "../../assets/dummy/top5.json";
+import top5 from "../assets/dummy/top5.json";
+import timeseries from "@/assets/dummy/timeseries.json";
 import StockListItem from "@/components/StockListItem";
+import Graph from "@/components/Graph";
 
 export default function StockDetails() {
   const { symbol } = useLocalSearchParams();
   const router = useRouter(); // Use router for navigation
   const stock = Object.values(top5).find((stock) => stock.symbol === symbol);
+
+  // Filter the time-series data based on the stock symbol
+  const stockTimeSeries = timeseries.filter((data) => data.symbol === symbol);
 
   return (
     <View style={styles.container}>
@@ -17,7 +22,14 @@ export default function StockDetails() {
       </Pressable>
 
       {/* Stock Details */}
-      {stock ? <StockListItem stock={stock} /> : <Text>Stock not found</Text>}
+      {stock ? (
+        <>
+          <StockListItem stock={stock} />
+          <Graph timeSeries={stockTimeSeries} />
+        </>
+      ) : (
+        <Text>Stock not found</Text>
+      )}
     </View>
   );
 }

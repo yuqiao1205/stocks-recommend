@@ -1,7 +1,12 @@
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 ALPHAVANTAGE_API_KEY = os.getenv('ALPHAVANTAGE_API_KEY')
+
+print(ALPHAVANTAGE_API_KEY)
 
 # replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 url = f'https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AMD&apikey={ALPHAVANTAGE_API_KEY}'
