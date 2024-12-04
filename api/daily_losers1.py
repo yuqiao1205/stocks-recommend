@@ -9,6 +9,7 @@ def get_daily_losers():
     s.set_predefined_body('day_losers')
 
     data = s.response
+    print(data)
 
     tickers = []
     for quote in data['quotes']:
@@ -19,6 +20,8 @@ def get_daily_losers():
             tickers.append({
                 'symbol': quote['symbol'],
                 'change_percent': quote['regularMarketChangePercent'],
+                'regularMarketPreviousClose': quote['regularMarketPreviousClose'],
+
                 'market_cap': quote['marketCap'] / 1e9,
                 'name': quote['shortName']
             })

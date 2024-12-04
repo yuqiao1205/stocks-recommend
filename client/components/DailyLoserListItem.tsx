@@ -7,6 +7,7 @@ type Stock = {
   symbol: string;
   change_percent: number;
   market_cap: number;
+  regularMarketPreviousClose: number;
 };
 
 type DailyLoserStockListItem = {
@@ -31,6 +32,9 @@ export default function DailyLoserListItem({ stock }: DailyLoserStockListItem) {
       <View style={{ alignItems: "flex-end" }}>
         <MonoText style={{ fontSize: 16 }}>
           Market Cap: ${stock.market_cap.toFixed(2)}B
+        </MonoText>
+        <MonoText style={{ fontSize: 16 }}>
+          Close: ${stock.regularMarketPreviousClose?.toFixed(2) ?? "0.00"}
         </MonoText>
         <MonoText style={{ color: change > 0 ? "green" : "red", fontSize: 16 }}>
           {change.toFixed(2)}%{change > 0 ? " ▲" : " ▼"}

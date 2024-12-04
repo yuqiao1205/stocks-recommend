@@ -19,7 +19,7 @@ export default function TabTwoScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch("http://stockshub.duckdns.org:5001/fin"); // Adjust if hosted remotely
+        // const response = await fetch("http://stockshub.duckdns.org:5001/fin");
         const response = await fetch(
           "https://stocks-backend-flask.vercel.app/fin"
         );

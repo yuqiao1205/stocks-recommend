@@ -20,6 +20,7 @@ def get_daily_losers():
                 'symbol': quote['symbol'],
                 'change_percent': quote['regularMarketChangePercent'],
                 'market_cap': quote['marketCap'] / 1e9,  # Convert to billions
+                'regularMarketPreviousClose': quote['regularMarketPreviousClose'],
                 'name': quote['shortName'],
                 'exchange': quote['fullExchangeName']
             })
