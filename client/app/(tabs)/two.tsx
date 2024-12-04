@@ -50,7 +50,7 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Stack screenOptions={{ title: "Stocks" }} />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.title}>Recommend Stock To Buy Now</Text>
+        <Text style={styles.title}>Recommend Stocks To Buy Now</Text>
         {stocks.map((stock, index) => (
           <DailyLoserListItem key={index} stock={stock} />
         ))}
