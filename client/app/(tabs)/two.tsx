@@ -19,7 +19,10 @@ export default function TabTwoScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://stockshub.duckdns.org:5001/fin"); // Adjust if hosted remotely
+        // const response = await fetch("http://stockshub.duckdns.org:5001/fin"); // Adjust if hosted remotely
+        const response = await fetch(
+          "https://stocks-backend-flask.vercel.app/fin"
+        );
 
         // Adjust if hosted remotely
         // const response = await fetch(`${BACKEND_URL}/fin`); // Adjust if hosted remotely
@@ -47,7 +50,7 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Stack screenOptions={{ title: "Stocks" }} />
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <Text style={styles.title}>Recommend Stock List Top10</Text>
+        <Text style={styles.title}>Recommend Stock TO Buy Now</Text>
         {stocks.map((stock, index) => (
           <DailyLoserListItem key={index} stock={stock} />
         ))}
