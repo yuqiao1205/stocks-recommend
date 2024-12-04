@@ -24,8 +24,6 @@ export default function TabTwoScreen() {
           "https://stocks-backend-flask.vercel.app/fin"
         );
 
-        // Adjust if hosted remotely
-        // const response = await fetch(`${BACKEND_URL}/fin`); // Adjust if hosted remotely
         const data = await response.json();
         setStocks(data.daily_losers);
       } catch (error) {
