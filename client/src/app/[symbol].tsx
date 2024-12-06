@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import top5 from "../assets/dummy/top5.json";
-import timeseries from "@/assets/dummy/timeseries.json";
+import top5 from "../../assets/dummy/top5.json";
+import timeseries from "../../assets/dummy/timeseries.json";
 import StockListItem from "@/components/StockListItem";
 import Graph from "@/components/Graph";
 

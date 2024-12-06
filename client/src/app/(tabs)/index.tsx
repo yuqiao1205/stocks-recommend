@@ -4,7 +4,7 @@ import EditScreenInfo from "@/components/EditScreenInfo";
 import { Text, View } from "@/components/Themed";
 import { Stack } from "expo-router";
 
-import top5 from "../../assets/dummy/top5.json";
+import top5 from "../../../assets/dummy/top5.json";
 import StockListItem from "@/components/StockListItem";
 
 export default function TabOneScreen() {

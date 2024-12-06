@@ -19,10 +19,10 @@ export default function TabTwoScreen() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const response = await fetch("http://stockshub.duckdns.org:5001/fin");
-        const response = await fetch(
-          "https://stocks-backend-flask.vercel.app/fin"
-        );
+        const response = await fetch("http://stockshub.duckdns.org:5001/fin");
+        // const response = await fetch(
+        //   "https://stocks-backend-flask.vercel.app/fin"
+        // );
 
         const data = await response.json();
         setStocks(data.daily_losers);
