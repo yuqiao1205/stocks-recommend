@@ -19,7 +19,7 @@ export default function StockListItem({ stock }: { stock: Stock }) {
   const changeColor = change > 0 ? "green" : change < 0 ? "red" : "black"; // Determine color based on value
 
   return (
-    <Link href={`/${stock.symbol}` as const} asChild>
+    <Link href={`/details/${stock.symbol}` as const} asChild>
       <Pressable
         style={styles.container}
         onPress={() => console.log("Pressable pressed!")}

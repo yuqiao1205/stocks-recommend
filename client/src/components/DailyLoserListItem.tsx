@@ -1,6 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 import { MonoText } from "./StyledText";
+import { Link } from "expo-router";
 
 type Stock = {
   name: string;
@@ -18,35 +19,39 @@ export default function DailyLoserListItem({ stock }: DailyLoserStockListItem) {
   const change = stock.change_percent;
 
   return (
-    <View style={styles.container}>
-      {/* Left side */}
-      <View style={{ flex: 1, gap: 10 }}>
-        <Text style={styles.symbol}>
-          {stock.symbol}
-          <AntDesign name="staro" size={18} color="gray" />
-        </Text>
-        <Text style={{ color: "gray" }}>{stock.name}</Text>
-      </View>
+    <Link href={`/loser_details/${stock.symbol}` as const} asChild>
+      <Pressable>
+        <View style={styles.container}>
+          {/* Left side */}
+          <View style={{ flex: 1, gap: 10 }}>
+            <Text style={styles.symbol}>
+              {stock.symbol}
+              <AntDesign name="staro" size={18} color="gray" />
+            </Text>
+            <Text style={{ color: "gray" }}>{stock.name}</Text>
+          </View>
 
-      {/* Right side */}
-      <View style={{ alignItems: "flex-end" }}>
-        <MonoText style={{ fontSize: 16 }}>
-          Market Cap: ${stock.market_cap.toFixed(2)}B
-        </MonoText>
+          {/* Right side */}
+          <View style={{ alignItems: "flex-end" }}>
+            <MonoText style={{ fontSize: 16 }}>
+              Market Cap: ${stock.market_cap.toFixed(2)}B
+            </MonoText>
 
-        <MonoText style={{ fontSize: 16 }}>
-          ${stock.regularMarketPreviousClose?.toFixed(2) ?? "0.00"}{" "}
-          <MonoText
-            style={{
-              color: change > 0 ? "green" : "red",
-              fontSize: 14,
-            }}
-          >
-            {change.toFixed(2)}%{change > 0 ? " ▲" : " ▼"}
-          </MonoText>
-        </MonoText>
-      </View>
-    </View>
+            <MonoText style={{ fontSize: 16 }}>
+              ${stock.regularMarketPreviousClose?.toFixed(2) ?? "0.00"}{" "}
+              <MonoText
+                style={{
+                  color: change > 0 ? "green" : "red",
+                  fontSize: 14,
+                }}
+              >
+                {change.toFixed(2)}%{change > 0 ? " ▲" : " ▼"}
+              </MonoText>
+            </MonoText>
+          </View>
+        </View>
+      </Pressable>
+    </Link>
   );
 }
 
