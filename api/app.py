@@ -20,7 +20,7 @@ def home():
 def get_fin():
     return jsonify(get_daily_losers())
 
-@app.route('/fin/<string:symbol>', methods=['GET'])
+@app.route('/timeseries/<string:symbol>', methods=['GET'])
 def get_fin_symbol(symbol):
     return jsonify(get_timeseries(symbol))
 

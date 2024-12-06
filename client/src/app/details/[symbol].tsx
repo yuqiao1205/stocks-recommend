@@ -5,7 +5,6 @@ import top5 from "../../../assets/dummy/top5.json";
 import timeseries from "../../../assets/dummy/timeseries.json";
 import StockListItem from "@/components/StockListItem";
 import Graph from "@/components/Graph";
-import { Stack } from "expo-router";
 
 export default function StockDetails() {
   const { symbol } = useLocalSearchParams();
@@ -51,3 +50,23 @@ const styles = StyleSheet.create({
     color: "#007bff",
   },
 });
+
+// import { RouteProp } from "@react-navigation/native";
+
+// type RouteParams = {
+//   params: {
+//     symbol: string;
+//   };
+// };
+
+// export const screenOptions = ({
+//   route,
+// }: {
+//   route: RouteProp<RouteParams, "params">;
+// }) => {
+//   const { symbol } = route.params || {};
+//   return {
+//     title: `Details for ${symbol || "Stock"}`,
+//     headerBackTitle: "Back",
+//   };
+// };
