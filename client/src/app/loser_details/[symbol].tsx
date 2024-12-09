@@ -37,6 +37,9 @@ export default function StockDetails() {
         const response = await axios.get(
           "http://stockshub.duckdns.org:5001/fin"
         );
+        // const response = await axios.get(
+        //   "http://stockshub.duckdns.org:5001/fin"
+        // );
         const dailyLosers: Stock[] = response.data.daily_losers;
 
         // Find the stock matching the symbol
@@ -81,8 +84,8 @@ export default function StockDetails() {
   return (
     <View style={styles.container}>
       {/* Custom Back Button */}
-      <Pressable style={styles.backButton} onPress={() => router.back()}>
-        <Text style={styles.backButtonText}>← Back</Text>
+      <Pressable>
+        {/* <Text style={styles.backButtonText}>← Back</Text> */}
       </Pressable>
 
       {/* Stock Details */}

@@ -17,8 +17,8 @@ export default function StockDetails() {
   return (
     <View style={styles.container}>
       {/* Custom Back Button */}
-      <Pressable style={styles.backButton} onPress={() => router.back()}>
-        <Text style={styles.backButtonText}>← Back</Text>
+      <Pressable>
+        {/* <Text style={styles.backButtonText}>← Back</Text> */}
       </Pressable>
 
       {/* Stock Details */}
