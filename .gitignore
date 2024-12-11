@@ -3,3 +3,9 @@
 *.pyc
 .env
 client/package-lock.json
+## Ignore Python cache files
+
+api/__pycache__/
+api/_.pyc
+api/_.pyo
+api/\*.pyd
