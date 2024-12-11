@@ -30,8 +30,11 @@ const GraphLostStock = ({ symbol }: GraphProps) => {
       setLoading(true);
       setError(null);
       try {
+        // const response = await axios.get(
+        //   `https://stocks-backend-flask.vercel.app/timeseries/${symbol}` // Use the dynamic symbol
+        // );
         const response = await axios.get(
-          `http://stockshub.duckdns.org:5001/timeseries/${symbol}` // Use the dynamic symbol
+          `http://stockshub.duckdns.org:5001/timeseries/${symbol}` // Use the dynamic symbol localhost
         );
         setTimeSeries(response.data.data); // Assuming API response directly provides the array
       } catch (err) {
