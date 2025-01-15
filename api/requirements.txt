@@ -3,3 +3,4 @@ mplfinance==0.12.10b0
 pandas==2.2.3
 Requests==2.32.3
 yfinance==0.2.50
+Flask-Cors==5.0.0
